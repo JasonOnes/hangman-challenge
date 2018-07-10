@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>HangPerson</title>
+</head>
+
+<body>
+<h1>Congrats</h1>
+{% if remaining %}
+<h1>{{ remaining }}</h1>
+<form action="{{ url_for('next_game', words_left=remaining) }}" method='POST'>
+    <input type="submit" value="new_game">
+{% else %}
+<h1>"GAME OVER MAN!"</h1>
+<p>--Bill Paxton (RIP)</p>    
+{% endif %}
+</form>
+</body>
+
+
+
+
+
+</html>

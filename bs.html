@@ -1,0 +1,15 @@
+{% if not word_guessed %}
+<form action="{{url_for('word_guess', words_left=words_to_go, current_word=current_word, guesses_made=guesses_made) }}" method='POST'>
+    <label for="word_guess">Guess the word</label>
+    <input type='text' maxlength='7' size='7' name='word_guess'>
+    
+</form>
+
+<form action="{{url_for('word_guess', words_left=words_to_go, current_word=current_word, guesses_made=guesses_made) }}" method='POST'>
+    <input type='submit' value="only get one shot">
+    
+</form>
+
+{% endif %}
+
+
