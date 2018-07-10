@@ -36,6 +36,7 @@ def start_from_rando():
 @app.route("/<words_left>/<current_word>/<guesses_made>", methods=['POST', 'GET'])
 def in_game(words_left, current_word, guesses_made):
     ''' main game play, built with params '''
+    
     word = word_dict[current_word]
     guesses = guesses_made #decoded 
     whole_word_guessed = False
@@ -54,15 +55,19 @@ def in_game(words_left, current_word, guesses_made):
         return render_template('congrats.html', remaining=words_left)
     
     if request.method == 'POST':
-            let_guess = request.form['letter_guess']
-            print(let_guess)
-            if let_guess.lower() not in word.lower():
-                mistakes += 1
-            print(str(mistakes))
-            guesses_made = let_guess + guesses_made #encode let_guess here
-            print(guesses_made)
+        
+        let_guess = request.form['letter_guess']
+        print(let_guess)
+        if let_guess.lower() not in word.lower():
+            mistakes += 1
+        print(str(mistakes))
+        guesses_made = let_guess + guesses_made #encode let_guess here
+        print(guesses_made)
             
-            return redirect(url_for('.in_game', words_left=words_left, current_word=current_word, guesses_made=guesses_made))
+        return redirect(url_for('.in_game', 
+                                words_left=words_left, 
+                                current_word=current_word, 
+                                guesses_made=guesses_made))
     return render_template('game-page.html', 
                             words_left=words_left, 
                             current_word=current_word, 
@@ -116,24 +121,26 @@ def next_game(words_left):
                             current_word=current_word, 
                             guesses_made=guesses))
 
-@app.route("/<words_left>/<current_word>/<guesses_made>", methods=['POST'])
-def undo(words_left, current_word, guesses_made):
-    if request.form['btn'] == 'Undo':
-        prev_words_left = words_left[1:]
-        prev_guesses_made = guesses_made[1:]
-        w = word_dict[current_word]
-        display_word = shown_word(w, guesses_made)
-
-        for guess in guesses_made:
-            if guess == '6':
-                whole_word_guessed=True
+@app.route("/<words_left>/<current_word>/<guesses_made>/<s>/<q>", methods=['GET', 'POST'])
+def undo(words_left, current_word, guesses_made, s, q):
     
-        return render_template('game-page.html', 
-                                    words_left=prev_words_left, 
-                                    current_word=current_word, 
-                                    guesses_made=prev_guesses_made, 
-                                    word=display_word, 
-                                    word_guessed=whole_word_guessed)
+    print("JJLKJLJLJLK")
+    prev_words_left = words_left[1:]
+    prev_guesses_made = guesses_made[1:]
+    w = word_dict[current_word]
+    display_word = shown_word(w, prev_guesses_made)
+
+    whole_word_guessed = False
+    for guess in guesses_made:
+        if guess == '6':
+            whole_word_guessed=True
+
+    return render_template('game-page.html', 
+                                words_left=prev_words_left, 
+                                current_word=current_word, 
+                                guesses_made=prev_guesses_made, 
+                                word=display_word, 
+                                word_guessed=whole_word_guessed)
 
 
 

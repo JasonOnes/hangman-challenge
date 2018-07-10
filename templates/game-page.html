@@ -28,10 +28,6 @@
     <input type='text' maxlength='1' size='1' name='letter_guess'>
 </form>
 
-<form action="{{url_for('in_game', words_left= words_left, current_word=current_word, guesses_made=guesses_made) }}" method='POST'>
-    <input type='submit' name='btn' value="sure?">
-    
-</form>
 
 
 <h1>{{guesses}}</h1>
@@ -44,22 +40,16 @@
     
 </form>
 
-<form action="{{url_for('word_guess', words_left=words_left, current_word=current_word, guesses_made=guesses_made, t=4) }}" method='POST'>
-    <input type='submit' name='btn' value="only get one shot">
-    
-</form>
 
 {% endif %}
 
 
 <h1>+++++++++++++++++++++++++++++++++++++++++++++++++++</h1>
-<form action="{{url_for('undo', words_left=words_left, current_word=current_word, guesses_made=guesses_made) }}" method='POST'>
-    <input type='button' value="UNDO" name='undo'>
-    <button type='submit' formaction="{{url_for('undo', words_left=words_left, current_word=current_word, guesses_made=guesses_made) }}">Undo</button>
-    <input type='submit' name='btn' value='undo'>
+
+
+<form action="{{url_for('undo', words_left=words_left, current_word=current_word, guesses_made=guesses_made, s=5, q=7) }}" method="POST">
+    <button type="submit">UNDO</button>
 </form>
-
-
 </body>
 
 
