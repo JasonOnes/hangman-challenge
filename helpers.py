@@ -10,17 +10,6 @@ word_dict = {'w':'FLUFFY',
             'l':'PELLETS', 
             'p':'RABBIT'}
 
-current_word_dict = { 'a': 1,
-                    'b': 2,
-                    'c': 3,
-                    'd': 4,
-                    'e': 5,
-                    'f':6,
-                    'g':7,
-                    'h':8,
-                    'i':9,
-}
-
 word_keys = list(word_dict.keys()) # list needes for dict object starting in py3
 
 d_lets = ['s', 't', 'r', 'e', 'z', 'b', 'j', 'v']

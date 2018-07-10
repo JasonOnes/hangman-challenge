@@ -1,19 +1,8 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>HangPerson</title>
-</head>
+{% extends 'base.html' %}
 
-<body>
-<!-- {% if guesses %}
-    {% for guess in guesses %}
-    {% if guess in word %}
-    <h1>guess</h1>
-    {% else %}
-    <h1>_</h1>
-    {% endif %}
-    {% endfor %}
-{% endif %} -->
+
+{% block content %}
+
 
 <h1>{{all_words}}</h1>
 <h1>{{word}}</h1>
@@ -51,10 +40,6 @@
 <form action="{{url_for('undo', all_words=all_words, index_cw=index_cw, guesses_made=guesses_made,s=5, q=7) }}" method="POST">
     <button type="submit">UNDO</button>
 </form>
-</body>
 
 
-
-
-
-</html>
+{% endblock %}

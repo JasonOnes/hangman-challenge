@@ -1,10 +1,8 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>HangPerson</title>
-</head>
+{% extends 'base.html' %}
 
-<body>
+
+
+{% block content %}
 <h1>Congrats</h1>
 <h2>{{word_completed}}</h2>
 <h3>{{ guesses_made }}</h3>
@@ -17,10 +15,5 @@
 <p>--Bill Paxton (RIP)</p>    
 {% endif %}
 </form>
-</body>
 
-
-
-
-
-</html>
+{% endblock %}

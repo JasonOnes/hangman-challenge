@@ -78,9 +78,7 @@ def in_game(all_words, index_cw, guesses_made):
                                 all_words=all_words, 
                                 index_cw=index_cw, 
                                 guesses_made=guesses_made))
-    print("!!!!!!!!!!!!!!!!")
-
-    print(mistakes)
+    
     return render_template('game-page.html', 
                                 all_words=all_words, 
                                 index_cw=index_cw, 
@@ -101,7 +99,7 @@ def word_guess(all_words, index_cw, guesses_made, t):
                                                     word_completed=index_cw, 
                                                     guesses_made=guesses_made)
         whole_word_guessed = True
-        guesses = "6" + guesses_made
+        guesses = "6" + guesses_made #6 will act as a marker in guess series that whole word was attempted
         w = get_current_word(all_words, index_cw)
         
         display_word = shown_word(w, guesses)
