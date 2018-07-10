@@ -7,9 +7,10 @@
 <body>
 <h1>Congrats</h1>
 <h2>{{word_completed}}</h2>
+<h3>{{ guesses_made }}</h3>
 {% if remaining %}
 <h1>{{ remaining }}</h1>
-<form action="{{ url_for('next_game', all_words=remaining, word_completed=word_completed) }}" method='POST'>
+<form action="{{ url_for('next_game', all_words=all_words, word_completed=word_completed) }}" method='POST'>
     <input type="submit" value="new_game">
 {% else %}
 <h1>"GAME OVER MAN!"</h1>
