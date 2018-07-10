@@ -15,15 +15,15 @@
     {% endfor %}
 {% endif %} -->
 
-<h1>{{words_left}}</h1>
+<h1>{{all_words}}</h1>
 <h1>{{word}}</h1>
 <h1>{{ words_to_go }}</h1>
-<h1>{{ current_word }}</h1>
+<h1>{{ index_cw }}</h1>
 <p>===========================</p>
 <h1>{{ guesses_made }}</h1>
 <p>============================</p>
 
-<form action="{{url_for('in_game', words_left=words_left, current_word=current_word, guesses_made=guesses_made) }}" method='POST'>
+<form action="{{url_for('in_game', all_words=all_words, index_cw=index_cw, guesses_made=guesses_made) }}" method='POST'>
     <label for="letter_guess">Guess a letter</label>
     <input type='text' maxlength='1' size='1' name='letter_guess'>
 </form>
@@ -34,7 +34,7 @@
 
 <h1>+++++++++++++++++++++++++++++++++++++++++++++++++++</h1>
 {% if not word_guessed %}
-<form action="{{url_for('word_guess', words_left=words_left, current_word=current_word, guesses_made=guesses_made, t=4) }}" method='POST'>
+<form action="{{url_for('word_guess', all_words=all_words, index_cw=index_cw, guesses_made=guesses_made, t=4) }}" method='POST'>
     <label for="word_guess">Guess the word</label>
     <input type='text' maxlength='7' size='7' name='word_guess'>
     
@@ -47,7 +47,7 @@
 <h1>+++++++++++++++++++++++++++++++++++++++++++++++++++</h1>
 
 
-<form action="{{url_for('undo', words_left=words_left, current_word=current_word, guesses_made=guesses_made, s=5, q=7) }}" method="POST">
+<form action="{{url_for('undo', all_words=all_words, index_cw=index_cw, guesses_made=guesses_made, s=5, q=7) }}" method="POST">
     <button type="submit">UNDO</button>
 </form>
 </body>
