@@ -35,5 +35,35 @@ def shown_word(word, guesses):
 def get_current_word(words, index):
     wordkey = words[int(index)]
     return word_dict[wordkey].lower()
+
+def quick_encode(letters):
+    '''quick rot9 cipher '''
+    alpha = 'abcdefghijklmnopqrstuvwxyz' * 2
+    coded_string = ""
+    for letter in letters:
+        letter = letter.lower()
+        if letter.isalpha():
+            old_index = alpha.index(letter)
+            coded_string += alpha[old_index+9]
+        else:
+            coded_string += letter
+    return coded_string
     
+def quick_decode(letters):
+    alpha = 'abcdefghijklmnopqrstuvwxyz' * 2
+    decoded_string = ""
+    for letter in letters:
+        letter = letter.lower()
+        if letter.isalpha():
+            old_index = alpha.index(letter)
+            decoded_string += alpha[old_index-9]
+        else:
+            decoded_string += letter
+    return decoded_string
+    
+
+    
+
+
+
 
