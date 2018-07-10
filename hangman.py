@@ -175,4 +175,5 @@ def undo(all_words, index_cw, coded_guesses, s, q):
 if __name__ == "__main__":
     ''' shouldn't use this as a production server, but for now. 
     I'll use nginx and/or gunicorn if live deploy'''
-    app.run(host='0.0.0.0', port=80)
+    #app.run(host='0.0.0.0', port=80)
+    app.run()
