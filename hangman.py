@@ -110,7 +110,7 @@ def word_guess(all_words, index_cw, coded_guesses, t):
         guesses = "6" + coded_guesses #6 will act as a marker in guess series that whole word was attempted
         w = get_current_word(all_words, index_cw)
         
-        display_word = shown_word(w, guesses)
+        display_word = shown_word(w, quick_decode(guesses))
         return render_template('game-page.html', 
                                 all_words=all_words, 
                                 index_cw=index_cw, 
@@ -156,7 +156,7 @@ def undo(all_words, index_cw, coded_guesses, s, q):
 
     w = get_current_word(all_words, index_cw)
 
-    display_word = shown_word(w, prev_coded_guesses)
+    display_word = shown_word(w, quick_decode(prev_coded_guesses))
 
     whole_word_guessed = False
     for guess in coded_guesses:
