@@ -10,7 +10,7 @@ from helpers import (add_on, d_lets, shown_word, word_keys,
 
 app = Flask(__name__)
 
-app.config['DEBUG'] = True
+
 # below makes our simple decode function availanble for jinja to display in place
 app.jinja_env.globals.update(guess_display=quick_decode)
 
