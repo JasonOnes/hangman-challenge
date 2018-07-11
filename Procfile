@@ -1,1 +1,1 @@
-web: gunicorn app:hangman
+web: gunicorn hangman:app
